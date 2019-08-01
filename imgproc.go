@@ -517,8 +517,12 @@ const (
 // For further details, please see:
 // https://docs.opencv.org/master/df/dfb/group__imgproc__object.html#ga586ebfb0a7fb604b35a23d85391329be
 //
-func MatchTemplate(image Mat, templ Mat, result *Mat, method TemplateMatchMode, mask Mat) {
+func MatchTemplateMask(image Mat, templ Mat, result *Mat, method TemplateMatchMode, mask Mat) {
 	C.MatchTemplate(image.p, templ.p, result.p, C.int(method), mask.p)
+}
+
+func MatchTemplate(image Mat, templ Mat, result *Mat, method TemplateMatchMode) {
+	C.MatchTemplate(image.p, templ.p, result.p, C.int(method))
 }
 
 // Moments calculates all of the moments up to the third order of a polygon
