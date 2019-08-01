@@ -518,7 +518,7 @@ const (
 // https://docs.opencv.org/master/df/dfb/group__imgproc__object.html#ga586ebfb0a7fb604b35a23d85391329be
 //
 func MatchTemplateMask(image Mat, templ Mat, result *Mat, method TemplateMatchMode, mask Mat) {
-	C.MatchTemplate(image.p, templ.p, result.p, C.int(method), mask.p)
+	C.MatchTemplateMask(image.p, templ.p, result.p, C.int(method), mask.p)
 }
 
 func MatchTemplate(image Mat, templ Mat, result *Mat, method TemplateMatchMode) {
